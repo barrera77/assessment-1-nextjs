@@ -1,0 +1,6 @@
+.socialMediaLink {
+    display: flex;   
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;    
+}
