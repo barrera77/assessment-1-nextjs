@@ -17,6 +17,7 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Badge, ButtonBase } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import Link from 'next/link';
 
 const isLogged = false;
 const loggedInSettings = ['Profile', 'Account', 'Logout'];
@@ -51,7 +52,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -162,21 +163,23 @@ function ResponsiveAppBar() {
             </PopupState>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-           <Box sx={{display: "flex", gap: {xs: ".5rem", sm: "1.5rem"}}}>
+           <Box sx={{display: "flex", gap: {xs: ".5rem", sm: "1.5rem"}, alignItems: "center"}}>
               <Tooltip title="Go to Cart">
-                <IconButton                
-                aria-label="show 17 new notifications"
-                sx={{color: '#091d55', fontWeight: "600", border: {md: "1px solid #091d55"}, "&:hover": {backgroundColor: "#091d55", color: "#fff"}}}                
-                >
-                  <Badge badgeContent={17} color="error">
-                    <ShoppingCartRoundedIcon sx={{fontSize:{sm: "2rem", md:"2.5rem"}}}/>
-                  </Badge>
-                </IconButton>
+               <Link href="/shopping-cart" passHref>
+                  <IconButton                
+                  aria-label="show 17 new notifications"
+                  sx={{color: '#091d55', fontWeight: "600"}}                
+                  >
+                    <Badge badgeContent={17} color="error">
+                      <ShoppingCartRoundedIcon sx={{fontSize: "2rem", "&:hover": {backgroundColor: "#091d55", color: "#fff"}}}/>
+                    </Badge>
+                  </IconButton>
+               </Link>
                 </Tooltip>
   
                 <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu}  sx={{color: '#091d55', fontWeight: "600",  backgroundColor: "#091d55", border: {sm: "1px solid #091d55"}, "&:hover": {backgroundColor: "#fff", color: "#091d55"}}}>
-                    <Avatar alt="User" sx={{fontSize:{xs: "2rem"}, backgroundColor: "transparent", "&:hover": {color: "#091d55"}}}/>
+                  <IconButton onClick={handleOpenUserMenu}  sx={{color: '#091d55', fontSize: "1.5rem", fontWeight: "600",  "&:hover": {backgroundColor: "#fff", color: "#091d55"}}}>
+                    <Avatar alt="User" sx={{fontSize: "1.5rem", backgroundColor: "#091d55", "&:hover": {color: "#091d55", backgroundColor: "#fff"}}}/>
                   </IconButton>
                 </Tooltip>
            </Box>

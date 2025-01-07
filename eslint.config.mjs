@@ -9,8 +9,28 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
+import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
+
+const config = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.ts", "**/*.tsx"], // Apply to TypeScript files
+    languageOptions: {
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+        project: "./tsconfig.json", // Ensure it points to your TypeScript config
+      },
+    },
+    plugins: {
+      "@typescript-eslint": typescriptEslintPlugin,
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      // Add other rules as needed
+    },
+  },
 ];
 
-export default eslintConfig;
+export default config;

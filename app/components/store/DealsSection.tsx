@@ -7,7 +7,7 @@ const DealsSection = () => {
     <Box>
        <Container maxWidth="xl">
            <Box sx={{width: "100%", paddingY: "2rem"}}>
-                <Typography variant='h4' textAlign={"center"}>
+                <Typography variant='h4' textAlign={"center"} sx={{fontSize: {xs: "1.5rem", sm: "2rem", md: "2.25rem"}}}>
                     This Week&apos;s Deals
                 </Typography>
            </Box>
