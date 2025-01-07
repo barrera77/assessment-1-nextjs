@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Badge, ButtonBase } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 const isLogged = false;
 const loggedInSettings = ['Profile', 'Account', 'Logout'];
@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static" sx={{backgroundColor: "transparent"}}>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{paddingY: ".5rem"}}>
         <Toolbar disableGutters>          
           <Typography
             variant="h6"
@@ -55,10 +55,10 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: "bold",             
-              fontSize: {md: "2rem"},
-              color: 'rgba(9,29,85,1)', 
+              fontFamily: "fantasy",
+              fontWeight: "900",             
+              fontSize: {md: "2.5rem"},
+              color: '#091d55', 
               textDecoration: 'none',
             }}
           >
@@ -74,7 +74,7 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon sx={{color: '#091d55'}}/>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -130,25 +130,26 @@ function ResponsiveAppBar() {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              color: 'rgba(9,29,85,1)',
+              color: '#091d55',
               textDecoration: 'none',
-              fontSize: {xs: "1.25rem", md: "1,5rem"}
+              fontSize: {xs: "1.25rem", sm: "1.75rem",                
+              }
             }}
           >
             My e-Shop
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: {md:"1.5rem"}, justifyContent: "center"}}>
-            <Button sx={{ my: 2, color: 'rgba(9,29,85,1)', fontWeight: "800", display: 'flex', fontSize: {md: "1rem"} }}>
-              About
+            <Button sx={{ my: 2, display: 'flex' }}>
+              <Typography sx={{fontFamily: "fantasy", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>About</Typography>
             </Button>
             <PopupState variant="popover" popupId="demo-popup-menu">
             {(popupState) => (
                 <React.Fragment>                      
-                  <Button   endIcon={<ExpandMoreIcon />}                                       
-                    sx={{ my: 2, color: 'rgba(9,29,85,1)', fontWeight: "800", display: 'flex', fontSize: {md: "1rem"} }}
+                  <Button   endIcon={<ExpandMoreIcon />} 
+                    sx={{ my: 2, color: '#091d55', display: 'flex'}}
                     {...bindTrigger(popupState)}
                   >
-                    Shop                          
+                    <Typography sx={{fontFamily: "fantasy", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>Shop</Typography>                          
                   </Button>
                       
                   <Menu {...bindMenu(popupState)}>
@@ -161,23 +162,21 @@ function ResponsiveAppBar() {
             </PopupState>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-           <Box sx={{display: "flex", gap: {xs: "1rem", sm: "1.5rem"}}}>
+           <Box sx={{display: "flex", gap: {xs: ".5rem", sm: "1.5rem"}}}>
               <Tooltip title="Go to Cart">
-                <IconButton
-                size="large"
+                <IconButton                
                 aria-label="show 17 new notifications"
-                sx={{color: 'rgba(9,29,85,1)', fontWeight: "600"}}
-                
+                sx={{color: '#091d55', fontWeight: "600", border: {md: "1px solid #091d55"}, "&:hover": {backgroundColor: "#091d55", color: "#fff"}}}                
                 >
                   <Badge badgeContent={17} color="error">
-                    <ShoppingCartIcon />
+                    <ShoppingCartRoundedIcon sx={{fontSize:{sm: "2rem", md:"2.5rem"}}}/>
                   </Badge>
                 </IconButton>
                 </Tooltip>
   
                 <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="User"  sx={{}}/>
+                  <IconButton onClick={handleOpenUserMenu}  sx={{color: '#091d55', fontWeight: "600",  backgroundColor: "#091d55", border: {sm: "1px solid #091d55"}, "&:hover": {backgroundColor: "#fff", color: "#091d55"}}}>
+                    <Avatar alt="User" sx={{fontSize:{xs: "2rem"}, backgroundColor: "transparent", "&:hover": {color: "#091d55"}}}/>
                   </IconButton>
                 </Tooltip>
            </Box>
