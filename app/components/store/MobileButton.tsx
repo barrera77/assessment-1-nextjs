@@ -3,8 +3,10 @@
 
 import {useState} from 'react'
 
-import { Box, Typography, IconButton, Menu, MenuItem } from '@mui/material'
+import { Box, Typography, IconButton, Menu, MenuItem, Badge } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import NotificationsIcon from '@mui/icons-material/Notifications'
+import { ShoppingBag, ShoppingBasket, ShoppingCart } from '@mui/icons-material'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
@@ -29,7 +31,7 @@ const MobileButton = () => {
 
   return (
   
-    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: "end" }}>
     <IconButton
       size="large"
       aria-label="account of current user"
@@ -54,14 +56,25 @@ const MobileButton = () => {
       }}
       open={Boolean(anchorElNav)}
       onClose={handleCloseNavMenu}
-      sx={{ display: { xs: 'block', md: 'none' } }}
+      sx={{ display: { xs: 'block', md: 'none' }}}
     >
       {pages.map((page) => (
-        <MenuItem key={page} onClick={handleCloseNavMenu}>
+        <MenuItem key={page} onClick={handleCloseNavMenu} sx={{width: "100%"}}>
           <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
         </MenuItem>
-      ))}
+      ))}        
     </Menu>
+    <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={17} color="error">
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
+        </MenuItem>    
   </Box>
       
    
