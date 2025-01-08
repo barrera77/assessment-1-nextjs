@@ -7,14 +7,14 @@ import { bannerImage } from '@/app/assets'
 const Hero = () => {
   return (
     <>
-        <Box sx={{marginBottom: "4rem", height: {md: "50vh", lg: "85vh"}, backgroundImage: "linear-gradient( 109.6deg,  rgb(234, 240, 248) 11.2%, rgba(244,248,252,1) 91.1% )" }}>
+        <Box sx={{marginBottom: "4rem", height: {md: "50vh", lg: "65vh"}, backgroundImage: "linear-gradient( 109.6deg,  rgb(234, 240, 248) 11.2%, rgba(244,248,252,1) 91.1% )" }}>
             <Container sx={{paddingY: "2.5rem", height: "100%"}} maxWidth="xl">
                 <Grid2 container spacing={2}>
                   <Grid2 size={{xs: 12, md: 6}} >
                     <Box sx={{height: "100%"}}>
                       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: "100%", gap: {xs: ".5rem", sm: ".25rem"}}}>
                             <Typography variant='h2' align='left' sx={{width: "100%", fontSize: {xs: "2.5rem", sm: "3.5rem"}}}>Welcome to</Typography>
-                            <Typography variant='h1' align='left' sx={{width: "100%", fontSize: {xs: "4.5rem"}, fontWeight: "600", fontFamily: "fantasy"}}>My e-Shop.</Typography>
+                            <Typography variant='h1' align='left' sx={{width: "100%", fontSize: {xs: "4.75rem"}, fontWeight: "600"}}>My e-Shop.</Typography>
                             <Grid2 size={{xs: 10, md: 6}} sx={{margin: "auto", display: {xs: "block", md: "none"}}} >
                                 <Box sx={{Width: "100%", paddingY: "1.5rem"}}>
                                 <Image

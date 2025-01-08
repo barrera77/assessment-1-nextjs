@@ -2,6 +2,15 @@ import { Box, Container, Grid2, Typography } from '@mui/material'
 import React from 'react'
 import ProductCard from './ProductCard'
 
+interface product {
+  _id: string;
+  name: string;
+  description: string;
+  category: string;
+  unitPrice: number;
+  img_url: string;
+}
+
 const DealsSection = () => {
   return (
     <Box>

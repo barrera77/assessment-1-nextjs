@@ -55,12 +55,12 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: "fantasy",
+              display: { xs: 'none', md: 'flex' },              
               fontWeight: "900",             
               fontSize: {md: "2.5rem"},
               color: '#091d55', 
               textDecoration: 'none',
+              fontFamily: "Oswald"
             }}
           >
             My e-Shop
@@ -128,20 +128,20 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
+              flexGrow: 1,              
               fontWeight: 700,
               color: '#091d55',
               textDecoration: 'none',
-              fontSize: {xs: "1.25rem", sm: "1.75rem",                
-              }
+              fontSize: {xs: "1.25rem", sm: "1.75rem"},
+              fontFamily: "Oswald"
+
             }}
           >
             My e-Shop
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: {md:"1.5rem"}, justifyContent: "center"}}>
             <Button sx={{ my: 2, display: 'flex' }}>
-              <Typography sx={{fontFamily: "fantasy", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>About</Typography>
+              <Typography sx={{fontFamily: "Oswald", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>About</Typography>
             </Button>
             <PopupState variant="popover" popupId="demo-popup-menu">
             {(popupState) => (
@@ -150,7 +150,7 @@ function ResponsiveAppBar() {
                     sx={{ my: 2, color: '#091d55', display: 'flex'}}
                     {...bindTrigger(popupState)}
                   >
-                    <Typography sx={{fontFamily: "fantasy", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>Shop</Typography>                          
+                    <Typography sx={{fontFamily: "Oswald", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>Shop</Typography>                          
                   </Button>
                       
                   <Menu {...bindMenu(popupState)}>
