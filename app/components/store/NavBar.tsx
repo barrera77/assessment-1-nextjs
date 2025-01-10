@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -26,8 +26,12 @@ const loggedOutSettings = ['Login'];
 const settings = isLogged ? loggedInSettings : loggedOutSettings;
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -45,9 +49,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "transparent"}}>
-      <Container maxWidth="xl" sx={{paddingY: ".5rem"}}>
-        <Toolbar disableGutters>          
+    <AppBar position="static" sx={{ backgroundColor: 'transparent' }}>
+      <Container maxWidth="xl" sx={{ paddingY: '.5rem' }}>
+        <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
@@ -55,18 +59,18 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },              
-              fontWeight: "900",             
-              fontSize: {md: "2.5rem"},
-              color: '#091d55', 
+              display: { xs: 'none', md: 'flex' },
+              fontWeight: '900',
+              fontSize: { md: '2.5rem' },
+              color: '#091d55',
               textDecoration: 'none',
-              fontFamily: "Oswald"
+              fontFamily: 'Oswald',
             }}
           >
             My e-Shop
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -75,7 +79,7 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon sx={{color: '#091d55'}}/>
+              <MenuIcon sx={{ color: '#091d55' }} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -91,35 +95,47 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' }}}
+              sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              
-                <MenuItem onClick={handleCloseNavMenu} sx={{width: "120px"}}>
-                  <Typography sx={{ textAlign: 'left', width: "100%"  }}>About</Typography>
-                </MenuItem>               
-                <PopupState variant="popover" popupId="popup-menu">
-                {(popupState) => (
-                    <React.Fragment>                      
-                      <MenuItem sx={{width: "120px", textAlign: "center"}}>
-                        <ButtonBase 
-                        sx={{ my: 2, display: 'flex', fontSize: {md: "1rem"}, width: "100%" }}
-                          {...bindTrigger(popupState)}
-                        >
-                            <Typography sx={{ textAlign: 'left', width: "100%"  }}>Shop</Typography>                          
-                            <ExpandMoreIcon />
-                        </ButtonBase>
+              <MenuItem onClick={handleCloseNavMenu} sx={{ width: '120px' }}>
+                <Typography sx={{ textAlign: 'left', width: '100%' }}>
+                  About
+                </Typography>
+              </MenuItem>
+              <PopupState variant="popover" popupId="popup-menu">
+                {popupState => (
+                  <React.Fragment>
+                    <MenuItem sx={{ width: '120px', textAlign: 'center' }}>
+                      <ButtonBase
+                        sx={{
+                          my: 2,
+                          display: 'flex',
+                          fontSize: { md: '1rem' },
+                          width: '100%',
+                        }}
+                        {...bindTrigger(popupState)}
+                      >
+                        <Typography sx={{ textAlign: 'left', width: '100%' }}>
+                          Shop
+                        </Typography>
+                        <ExpandMoreIcon />
+                      </ButtonBase>
+                    </MenuItem>
+
+                    <Menu {...bindMenu(popupState)}>
+                      <MenuItem onClick={popupState.close}>
+                        Electronics
                       </MenuItem>
-                    
-                      <Menu {...bindMenu(popupState)}>
-                        <MenuItem onClick={popupState.close}>Electronics</MenuItem>
-                        <MenuItem onClick={popupState.close}>Furniture</MenuItem>
-                        <MenuItem onClick={popupState.close}>Home Appliances</MenuItem>
-                      </Menu>
-                    </React.Fragment>
-                  )}
-                </PopupState>             
+                      <MenuItem onClick={popupState.close}>Furniture</MenuItem>
+                      <MenuItem onClick={popupState.close}>
+                        Home Appliances
+                      </MenuItem>
+                    </Menu>
+                  </React.Fragment>
+                )}
+              </PopupState>
             </Menu>
-          </Box>          
+          </Box>
           <Typography
             variant="h5"
             noWrap
@@ -128,61 +144,117 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,              
+              flexGrow: 1,
               fontWeight: 700,
               color: '#091d55',
               textDecoration: 'none',
-              fontSize: {xs: "1.25rem", sm: "1.75rem"},
-              fontFamily: "Oswald"
-
+              fontSize: { xs: '1.25rem', sm: '1.75rem' },
+              fontFamily: 'Oswald',
             }}
           >
             My e-Shop
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: {md:"1.5rem"}, justifyContent: "center"}}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              gap: { md: '1.5rem' },
+              justifyContent: 'center',
+            }}
+          >
             <Button sx={{ my: 2, display: 'flex' }}>
-              <Typography sx={{fontFamily: "Oswald", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>About</Typography>
+              <Typography
+                sx={{
+                  fontFamily: 'Oswald',
+                  color: '#091d55',
+                  fontWeight: '800',
+                  fontSize: { md: '1.25rem' },
+                }}
+              >
+                About
+              </Typography>
             </Button>
             <PopupState variant="popover" popupId="demo-popup-menu">
-            {(popupState) => (
-                <React.Fragment>                      
-                  <Button   endIcon={<ExpandMoreIcon />} 
-                    sx={{ my: 2, color: '#091d55', display: 'flex'}}
+              {popupState => (
+                <React.Fragment>
+                  <Button
+                    endIcon={<ExpandMoreIcon />}
+                    sx={{ my: 2, color: '#091d55', display: 'flex' }}
                     {...bindTrigger(popupState)}
                   >
-                    <Typography sx={{fontFamily: "Oswald", color: '#091d55', fontWeight: "800", fontSize: {md: "1.25rem"}}}>Shop</Typography>                          
+                    <Typography
+                      sx={{
+                        fontFamily: 'Oswald',
+                        color: '#091d55',
+                        fontWeight: '800',
+                        fontSize: { md: '1.25rem' },
+                      }}
+                    >
+                      Shop
+                    </Typography>
                   </Button>
-                      
+
                   <Menu {...bindMenu(popupState)}>
                     <MenuItem onClick={popupState.close}>Electronics</MenuItem>
                     <MenuItem onClick={popupState.close}>Furniture</MenuItem>
-                    <MenuItem onClick={popupState.close}>Home Appliances</MenuItem>
-                </Menu>
+                    <MenuItem onClick={popupState.close}>
+                      Home Appliances
+                    </MenuItem>
+                  </Menu>
                 </React.Fragment>
               )}
             </PopupState>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-           <Box sx={{display: "flex", gap: {xs: ".5rem", sm: "1.5rem"}, alignItems: "center"}}>
+            <Box
+              sx={{
+                display: 'flex',
+                gap: { xs: '.5rem', sm: '1.5rem' },
+                alignItems: 'center',
+              }}
+            >
               <Tooltip title="Go to Cart">
-               <Link href="/shopping-cart" passHref>
-                  <IconButton                
-                  aria-label="show 17 new notifications"
-                  sx={{color: '#091d55', fontWeight: "600"}}                
+                <Link href="/shopping-cart" passHref>
+                  <IconButton
+                    aria-label="show 17 new notifications"
+                    sx={{ color: '#091d55', fontWeight: '600' }}
                   >
                     <Badge badgeContent={17} color="error">
-                      <ShoppingCartRoundedIcon sx={{fontSize: "2rem", "&:hover": {backgroundColor: "#091d55", color: "#fff"}}}/>
+                      <ShoppingCartRoundedIcon
+                        sx={{
+                          fontSize: '2rem',
+                          '&:hover': {
+                            backgroundColor: '#091d55',
+                            color: '#fff',
+                          },
+                        }}
+                      />
                     </Badge>
                   </IconButton>
-               </Link>
-                </Tooltip>
-  
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu}  sx={{color: '#091d55', fontSize: "1.5rem", fontWeight: "600",  "&:hover": {backgroundColor: "#fff", color: "#091d55"}}}>
-                    <Avatar alt="User" sx={{fontSize: "1.5rem", backgroundColor: "#091d55", "&:hover": {color: "#091d55", backgroundColor: "#fff"}}}/>
-                  </IconButton>
-                </Tooltip>
-           </Box>
+                </Link>
+              </Tooltip>
+
+              <Tooltip title="Open settings">
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{
+                    color: '#091d55',
+                    fontSize: '1.5rem',
+                    fontWeight: '600',
+                    '&:hover': { backgroundColor: '#fff', color: '#091d55' },
+                  }}
+                >
+                  <Avatar
+                    alt="User"
+                    sx={{
+                      fontSize: '1.5rem',
+                      backgroundColor: '#091d55',
+                      '&:hover': { color: '#091d55', backgroundColor: '#fff' },
+                    }}
+                  />
+                </IconButton>
+              </Tooltip>
+            </Box>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -199,9 +271,11 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {settings.map(setting => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                  <Typography sx={{ textAlign: 'center' }}>
+                    {setting}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

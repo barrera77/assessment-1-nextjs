@@ -1,5 +1,3 @@
-import bannerImage from "./banner-image-1.png"
+import bannerImage from './banner-image-1.png';
 
-export {
-    bannerImage
-}
+export { bannerImage };
